@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+p {
+    margin-bottom: 1px;
+}
+
+.schedule {
+    display: flex;
+    justify-content:space-between;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.days-left {
+    text-align: right;
+}
+
+.date {
+    text-align: right;
+    color: #a0a0a0;
+}

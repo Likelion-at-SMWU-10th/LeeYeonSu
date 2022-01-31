@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 D-day 계산기</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="container">
+    <div class='container d-flex flex-column justify-content-center align-items-center mt-3'>
+        <h1>일정 D-day 계산기</h1>
+        <h4 id='today'>Today: 2022.01.29</h4>
+    </div>
+    
+    <section class='schedule panel panel-default mt-3'>
+        <div class='panel-title'>    
+            <h3 class="title">제주도 여행</h3>
+        </div>  
+        <div class='date-box panel-body'>
+            <p id='appointment' class='days-left'>0일 남음</p>
+            <p class="date">2022.02.08</p>
+        </div>
+    </section>
+
+    <section class='schedule panel panel-default mt-3'>
+        <h3 class="title">멋사 모집 시작</h3>
+        <div class='date-box panel-body'>
+            <p id='mutsa' class='days-left'>0일 남음</p>
+            <p class="date">2022.02.21</p>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var today = new Date();
+        var today_date = today.getFullYear() + '.' + today.getMonth()+1 + '.' + today.getDate();
+        $('#today').text('Today : ' + today_date);
+
+        var jeju = new Date('2022-02-08');
+        var timediff = jeju.getTime() - today.getTime();
+        var day = Math.floor(timediff / (1000*60*60*24) +1);
+        $('#appointment').text(day+'일 남음');
+
+        var mutsa = new Date('2022-02-21');
+        var timediff2 = mutsa.getTime() - today.getTime();
+        var day2 = Math.floor(timediff2 / (1000*60*60*24) +1);
+        $('#mutsa').text(day2+'일 남음');
+    </script>
+</body>
+</html>
