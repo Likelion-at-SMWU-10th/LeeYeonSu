@@ -6,3 +6,9 @@
 
 <h3>본문</h3>
 {{ blog_detail.body}}
+
+{% if blog_detail.photo %}
+    <!-- 사진 찍어주기 -->
+    {{ blog_detail.photo.url }}
+    <img src="{{ blog_detail.photo.url }}" alt = "" height="600">
+{% endif %}

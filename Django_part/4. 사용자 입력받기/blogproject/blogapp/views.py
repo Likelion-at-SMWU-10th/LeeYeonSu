@@ -43,9 +43,9 @@ def formcreate(request):
         return render(request, 'form_create.html', {'form': form})
 
 def modelformcreate(request):
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method == 'FILES':
         # 입력 내용을 DB에 저장
-        form = BlogModelForm(request.POST)
+        form = BlogModelForm(request.POST, request.FILES)
         if form.is_valid(): 
             form.save()
             return redirect('home')

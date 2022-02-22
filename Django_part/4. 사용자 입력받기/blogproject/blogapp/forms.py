@@ -9,5 +9,5 @@ class BlogForm(forms.Form):
 class BlogModelForm(forms.ModelForm):
     class Meta:
         model = Blog
-        # fields = '__all__'  Blog 객체 안에 있는 모든 필드들의 입력을 받는다.
-        fields = ['title', 'body']
+        fields = '__all__'  # Blog 객체 안에 있는 모든 필드들의 입력을 받는다.
+        # fields = ['title', 'body']

@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blogapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,3 +35,6 @@ urlpatterns = [
 
     path('detail/<int:blog_id>', views.detail, name='detail'),
 ]
+
+# media 파일에 접근할 수 있는 url로 추가해주어야 함.
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
