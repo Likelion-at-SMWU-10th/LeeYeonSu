@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog
 from django.utils import timezone
-from .forms import BlogForm, BlogModelForm
+from .forms import BlogForm, BlogModelForm, CommentModelForm
 
 def home(request):
     # 블로그 글들을 모조리 띄우는 코드
@@ -58,4 +58,17 @@ def detail(request, blog_id):
     # blog_id 번째 블로그 글을 데이터베이스로부터 갖고 와서
     blog_detail = get_object_or_404(Blog, pk=blog_id)
     # detail.html로 띄워주는 코드
-    return render(request, 'detail.html', {'blog_detail': blog_detail})
+
+    comment_form = CommentModelForm()
+
+    return render(request, 'detail.html', {'blog_detail': blog_detail, 'comment_form':comment_form})
+
+def create_comment(request, blog_id):
+    filled_form = CommentModelForm(request.POST)
+
+    if filled_form.is_valid():
+        finished_form = filled_form.save(commit=False)
+        finished_form.post = get_object_or_404(Blog, pk=blog_id)
+        finished_form.save()
+    
+    return redirect('detail', blog_id)

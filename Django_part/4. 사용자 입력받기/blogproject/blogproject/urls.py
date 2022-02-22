@@ -34,6 +34,8 @@ urlpatterns = [
     path('modelformcreate/', views.modelformcreate, name='modelformcreate'),
 
     path('detail/<int:blog_id>', views.detail, name='detail'),
+
+    path('create_comment/<int:blog_id>', views.create_comment, name='create_comment'),
 ]
 
 # media 파일에 접근할 수 있는 url로 추가해주어야 함.
