@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog
 from django.utils import timezone
 from .forms import BlogForm, BlogModelForm
 
 def home(request):
-    return render(request, 'index.html')
+    # 블로그 글들을 모조리 띄우는 코드
+    # posts = Blog.objects.all()
+    posts = Blog.objects.filter().order_by('-date')
+    return render(request, 'index.html', {'posts':posts})
 
 # 블로그 글 작성 html을 보여주는 함수
 def new(request):
@@ -50,3 +53,9 @@ def modelformcreate(request):
         # 입력을 받을 수 있는 html을 갖다주기
         form = BlogModelForm()
         return render(request, 'form_create.html', {'form': form})
+
+def detail(request, blog_id):
+    # blog_id 번째 블로그 글을 데이터베이스로부터 갖고 와서
+    blog_detail = get_object_or_404(Blog, pk=blog_id)
+    # detail.html로 띄워주는 코드
+    return render(request, 'detail.html', {'blog_detail': blog_detail})

@@ -30,4 +30,6 @@ urlpatterns = [
 
     # Model form을 이용해 블로그 객체 만들기
     path('modelformcreate/', views.modelformcreate, name='modelformcreate'),
+
+    path('detail/<int:blog_id>', views.detail, name='detail'),
 ]
