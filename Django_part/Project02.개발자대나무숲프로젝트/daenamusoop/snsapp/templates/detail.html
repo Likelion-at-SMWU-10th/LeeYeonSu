@@ -6,6 +6,13 @@
 
 <h2>본문: {{ post_detail.date }}</h2>
 
+<!-- 댓글 목록 공간 -->
+{% for comment in post_detail.comment_set.all %}
+    <p>{{ comment }}</p>
+    <p>{{ comment.date }}</p>
+    <hr/>
+{% endfor %}
+
 <!-- 댓글 입력 공간 -->
 <form method="POST" action="{% url 'new_comment' post_detail.id %}">
     {% csrf_token %}
