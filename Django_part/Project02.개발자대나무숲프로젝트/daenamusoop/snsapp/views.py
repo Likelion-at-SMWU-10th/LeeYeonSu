@@ -1,10 +1,14 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import PostForm, CommentForm, FreePostForm, FreeCommentForm
 from .models import Post, FreePost
+from django.core.paginator import Paginator
 
 def home(request):
     # posts = Post.objects.all()
     posts = Post.objects.filter().order_by('-date')
+    paginator = Paginator(posts, 5)
+    pagenum = request.GET.get('page')
+    posts = paginator.get_page(pagenum) # pagenum만큼 잘라서 posts 변수에 담음
     return render(request, 'index.html', {'posts':posts})
 
 def postcreate(request):
