@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>개발자 대나무숲 - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-success">
 
     <div class="container">
 
@@ -57,12 +57,12 @@
                                             <div class="custom-control custom-checkbox small">
                                             </div>
                                         </div>
-                                        <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
+                                        <input type="submit" value="Login" class="btn btn-success btn-user btn-block">
                                         <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="{% url 'signup' %}">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
