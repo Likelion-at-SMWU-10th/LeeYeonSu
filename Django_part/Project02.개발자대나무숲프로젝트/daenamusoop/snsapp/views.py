@@ -64,6 +64,6 @@ def new_freecomment(request, post_id):
     filled_form = FreeCommentForm(request.POST)
     if filled_form.is_valid():
         finished_form = filled_form.save(commit=False) # 아직은 저장 안함
-        finished_form.post = get_object_or_404(Post, pk=post_id)
+        finished_form.post = get_object_or_404(FreePost, pk=post_id)
         finished_form.save()
     return redirect('freedetail', post_id)
