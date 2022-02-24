@@ -1,8 +1,11 @@
 from django.shortcuts import redirect, render
 from .forms import PostForm
+from .models import Post
 
 def home(request):
-    return render(request, 'index.html')
+    # posts = Post.objects.all()
+    posts = Post.objects.filter().order_by('-date')
+    return render(request, 'index.html', {'posts':posts})
 
 def postcreate(request):
     # reqeust method가 POST일 경우
