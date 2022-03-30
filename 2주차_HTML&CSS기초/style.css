@@ -1,4 +1,10 @@
+body,h1 {
+    margin:0px;
+    padding:0px;
+}
+
 h2 {
     background-color: bisque;
+    margin: 0px;
     padding: 5px;
 }
