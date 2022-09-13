@@ -1,3 +1,4 @@
+import React from "react";
 import {
     HeaderDiv,
     TitleLogoDiv,
@@ -35,4 +36,4 @@ import {
     );
   }
   
-  export default Header;
+  export default React.memo(Header);
