@@ -38,12 +38,12 @@ const WritePost = ({apiUrl}) => {
     const onSubmit = () => {
         axios.post(`${apiUrl}/posts/`, {
             title: inputs.title,
-            contents: inputs, contents,
+            contents: inputs.contents,
             repls: [],
         }).then(() => {
-            navigate('../');
-        })
-    }
+            navigate(..."/");
+        });
+    };
     return (
         <PostSection>
             <WriteTitle testw={testw} />

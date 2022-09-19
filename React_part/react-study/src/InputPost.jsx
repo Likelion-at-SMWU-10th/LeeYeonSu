@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ContentsInput, TitleInput } from './styledComponent';
 
 function InputPost({ onChange, contents, title }) {
@@ -32,9 +32,9 @@ function InputPost({ onChange, contents, title }) {
                 onChange={onChange}
                 ref={contentsInput}
                 onKeyUp={onKeyUp}
-            />
+            ></ContentsInput>
         </>
     );
-};
+}
 
 export default InputPost;
