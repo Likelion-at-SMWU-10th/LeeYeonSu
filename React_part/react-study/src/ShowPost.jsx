@@ -25,7 +25,7 @@ const replData = [
     {id: 3, content: `떡볶이 최고!`},
 ];
 
-// 뎃글 memo
+// 글 memo
 const PostAndRepl = React.memo(
     ({ post, postLoading, replCount, replLoading, repls }) => {
         return (
